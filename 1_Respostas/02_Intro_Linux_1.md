@@ -1,6 +1,10 @@
 1. Por que o Linux recebeu esse nome?
 
+Pois é uma variação do nome do criador do sistema, Linux Torvalds
+
 2. O que são daemons?
+
+
 
 3. O que é o shell?
 
@@ -38,21 +42,22 @@ As setas para cima e para baixo.
   rm -atributo "arquivo"
   
   (g) Apagar pastas definitivamente.
-  
+  rmdir "pasta"
   
   (h) Copiar arquivos.
   cp -atriputo origem destino
   
   (i) Copiar pastas.
+  cp -r pasta destino
   
   (j) Mover arquivos.
   mv arquivo destino
   
   (k) Mover pastas.
-  
+  mv pasta destino
   
   (l) Renomear pastas.
-  rmdir "pasta"
+  mv pasta nome_novo
   
   (m) Apresentar o conteúdo de um arquivo.
   cat "arquivo"
