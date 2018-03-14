@@ -2,17 +2,17 @@
 
 1. Escreva o texto "Ola mundo cruel!" em um arquivo denominado "Ola_mundo.txt". Apresente o conteúdo deste arquivo no terminal.
 
-'echo "Olá mundo cruel" > Ola_mundo.txt
+`echo "Olá mundo cruel" > Ola_mundo.txt
 
-cat Ola_mundo.txt'
+cat Ola_mundo.txt`
 
 2. Apresente o nome de todos os arquivos e pastas na pasta 'root'.
 
-'ls /root'
+ls /root
 
 3. Apresente o tipo de todos os arquivos e pastas na pasta 'root'.
 
-'file *'
+file *
 
 4. Apresente somente as pastas dentro da pasta 'root'.
 
@@ -24,9 +24,9 @@ Para as questões a seguir, use a pasta no endereço https://github.com/DiogoCae
 
 6. Liste somente os arquivos com extensão .txt.
 
-'ls | grep .txt'
+ls | grep .txt
 
-'arquivo.txt
+`arquivo.txt
 cal_1990.txt
 cal_1991.txt
 cal_1992.txt
@@ -60,14 +60,14 @@ cal_2019.txt
 cal_2020.txt
 cal.txt
 cal_types.txt
-Ola_Mundo.txt'
+Ola_Mundo.txt`
 
 
 7. Liste somente os arquivos com extensão .png.
 
-'ls | grep .png'
+ls | grep .png
 
-'BusinessTux.png
+`BusinessTux.png
 linux1.png
 linux2.png
 linux3.png
@@ -77,28 +77,28 @@ linux.png
 Tux-in-a-suit.png
 tux-linux-professional_0-100520358-orig.png
 TUX.png
-xanderrun-tux-construction-8454.png'
+xanderrun-tux-construction-8454.png`
 
 8. Liste somente os arquivos com extensão .jpg.
 
-'ls | grep .jpg'
+ls | grep .jpg
 
-'d36f1a2be6a927ac3e2e1e4eacdedded.jpg
+`d36f1a2be6a927ac3e2e1e4eacdedded.jpg
 oRva1OGD_400x400.jpg
 oRva1OGD.jpg
-zz39112bb5.jpg'
+zz39112bb5.jpg`
 
 9. Liste somente os arquivos com extensão .gif.
 
-'ls | grep .gif'
+ls | grep .gif
 
-'1086970.gif'
+`1086970.gif`
 
 10. Liste somente os arquivos que contenham o nome 'cal'.
 
-'ls | grep cal'
+ls | grep cal
 
-'cal_1990.txt
+`cal_1990.txt
 cal_1991.txt
 cal_1992.txt
 cal_1993.txt
@@ -130,17 +130,17 @@ cal_2018.txt
 cal_2019.txt
 cal_2020.txt
 cal.txt
-cal_types.txt'
+cal_types.txt`
 
 11. Liste somente os arquivos que contenham o nome 'tux'.
 
-'ls | grep tux'
+ls | grep tux
 
-tux-linux-professional_0-100520358-orig.png
-xanderrun-tux-construction-8454.png
+`tux-linux-professional_0-100520358-orig.png
+xanderrun-tux-construction-8454.png`
 
 12. Liste somente os arquivos que comecem com o nome 'tux'.
 
-'ls | grep ^tux'
+ls | grep ^tux
 
-tux-linux-professional_0-100520358-orig.png
+`tux-linux-professional_0-100520358-orig.png`
