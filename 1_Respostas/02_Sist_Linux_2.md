@@ -12,9 +12,11 @@ cat Ola_mundo.txt'
 
 3. Apresente o tipo de todos os arquivos e pastas na pasta 'root'.
 
-
+'file *'
 
 4. Apresente somente as pastas dentro da pasta 'root'.
+
+file * | grep directory
 
 5. Descubra em que dia da semana caiu o seu aniversário nos últimos dez anos.
 
