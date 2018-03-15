@@ -2,7 +2,12 @@ Para todas as questões, compile-as com o gcc e execute-as via terminal.
 
 1. Crie um "Olá mundo!" em C.
 
-Nome do arquivo "1_ola_mundo"
+```C
+#include <studio.h>
+int main(){
+	printf("Ola Mundo\n");
+}
+```
 
 2. Crie um código em C que pergunta ao usuário o seu nome, e imprime no terminal "Ola " e o nome do usuário. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_1':
 
@@ -11,8 +16,17 @@ $ ./ola_usuario_1
 $ Digite o seu nome: Eu
 $ Ola Eu
 ```
+Código em C:
 
-OK
+```C
+#include <stdio.h>
+int main(){
+	char nome[100];
+	printf("Qual o seu nome? ");
+	scanf("%s", nome);
+	printf("Ola %s\n", nome);
+}
+```
 
 3. Apresente os comportamentos do código anterior nos seguintes casos:
 
@@ -69,7 +83,15 @@ Apareceu `Qual o seu nome? Ola Ola`
 $ ./ola_usuario_2 Eu
 $ Ola Eu
 ```
-Ok, funcionou corretamente. O código está no arquivo 4_ola_usuario.c
+Código em C:
+
+```C
+#include <stdio.h>
+int main(int argc, char **argv){
+
+	printf("Ola %s\n", argv[1]);
+}
+```
 
 5. Apresente os comportamentos do código anterior nos seguintes casos:
 
