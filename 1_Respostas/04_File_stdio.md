@@ -4,7 +4,16 @@ Para todas as questões, utilize as funções da biblioteca `stdio.h` de leitura
 
 Código em C
 ```C
+#include <stdio.h>
 
+int main(int argc, char **argv){
+	int i = 1;
+	FILE *p_olamundo;
+	p_olamundo = fopen("ola_mundo.txt", "w");
+	fprintf(p_olamundo,"Olá Mundo");
+	printf("\n");
+	fclose(p_olamundo);
+}
 ```
 
 2. Crie um código em C que pergunta ao usuário seu nome e sua idade, e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_1':
