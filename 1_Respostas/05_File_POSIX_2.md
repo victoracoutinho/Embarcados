@@ -107,10 +107,9 @@ Resposta:
 
 int tam_arq_texto(char *nome_arquivo){
 	int fp = open(nome_arquivo, O_RDONLY, S_IRUSR|S_IWUSR);
-	int i = 0;
 	int tamanho =lseek(fp,0,SEEK_END);
 	close(fp);
-	return i;
+	return tamanho;
 }
 ```
 
@@ -124,15 +123,14 @@ Resposta:
 
 int tam_arq_texto(char *nome_arquivo){
 	int fp = open(nome_arquivo, O_RDONLY, S_IRUSR|S_IWUSR);
-	int i = 0;
 	int tamanho =lseek(fp,0,SEEK_END);
 	close(fp);
-	return i;
+	return tamanho;
 }
 
 void le_arq_texto(char *nome_arquivo, char*conteudo){
-	int fp = open(nome_arquivo ,S_IRUSR|S_IWUSR);
-	read(fp, &conteudo, tam_arq_texto(nome_arquivo));
+	int fp = open(nome_arquivo ,O_RDONLY, S_IRUSR|S_IWUSR);
+	read(fp, &*conteudo, tam_arq_texto(nome_arquivo));
 	close(fp);
 }
 ```
@@ -152,8 +150,8 @@ Resposta:
 int main(int argc, char **argv){
 	char *nome_arquivo = argv[1];
 	char *texto_arquivo;
-	int tamanho_arquivo = tam_arq_texto(nome_arquivo)
-	texto_arquivo = (*char)malloc(tamanho_arquivo+1);
+	int tamanho_arquivo = tam_arq_texto(nome_arquivo);
+	texto_arquivo = (char *) malloc(tamanho_arquivo+1);
 	le_arq_texto( nome_arquivo, texto_arquivo);
 	printf("%s", texto_arquivo);
 	return 1;
@@ -169,5 +167,50 @@ $ 'Ola' ocorre 2 vezes no arquivo 'ola.txt'.
 ```
 Resposta:
 ```C
+#include <stdio.h>
+#include "bib_arqs.h"
+
+int main(int argc, char **argv){
+	char *palavra_chave = argv[1];
+	char *nome_arquivo = argv[2];
+	char *texto_arquivo;
+	int i, j, N=0, tam_arq;
+	int contador = 0;
+	
+	while (palavra_chave[N]!='\0'){
+		N++;
+	}
+	tam_arq = tam_arq_texto(argv[2]);
+	texto_arquivo = (char*)malloc(tam_arq+1);
+
+	le_arq_texto( nome_arquivo, texto_arquivo);
+	for(i = 0; i<100;i++){
+		for( j = 0; j < N; ){
+			if(texto_arquivo[i+j] == palavra_chave[j]){
+				j++;
+				if(j == (N-1))
+					contador++;
+			}else{
+				i = i + j; // Para não ficar repitindo
+				break;
+			}
+		}
+	}
+	printf("'%s' ocorre %d vezes no arquivo '%s'\n",palavra_chave, contador, nome_arquivo);
+	return 1;
+}
+```
+
+Makefile para a questão 6 e 7:
+```besh
+main: funcao_cat.o funcao_grep.o bib_arqs.o
+	gcc -o busca_e_conta funcao_grep.o bib_arqs.o
+	gcc -o cat_falsificado funcao_cat.o bib_arqs.o
+funcao_grep.o:
+	gcc -c funcao_grep.c
+bib_arqs.o:
+	gcc -c bib_arqs.c
+funcao_cat.o:
+	gcc -c funcao_cat.c
 
 ```
