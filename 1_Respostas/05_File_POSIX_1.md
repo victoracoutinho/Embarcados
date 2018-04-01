@@ -7,7 +7,6 @@ FILE *fd = fopen(*char diretorio, *char acao_sobre_o_arquivo)
 
 int fclose( FILE *fd);
 ```
-int fopen e fclose
 
 (b) Quais são as funções (e seus protótipos) para escrever em arquivos?
 
