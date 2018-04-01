@@ -1,5 +1,29 @@
 1. Crie um código em C para gerar três processos-filho usando o `fork()`.
 
+Resposta: arquivo 1_tres_filhos.c
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+
+int main(int argc, char** argv){
+	int i;
+	for (i = 1; i <= 3; i++){
+		if(fork()==0){
+			printf("  - Processo filho com PID: %d\n",getpid());
+			break;
+		}else{
+			printf("%d - Processo pai com PID: %d\n",i,getpid());
+		}
+		sleep(1);
+	}
+
+}
+```
+
 2. Crie um código em C que recebe o nome de diversos comandos pelos argumentos de entrada (`argc` e `*argv[]`), e executa cada um sequencialmente usando `system()`. Por exemplo, considerando que o código criado recebeu o nome de 'serial_system', e que ele foi executado na pasta '/Sistemas_Embarcados/Code/06_Processos', que contem diversos arquivos:
 
 ```bash
@@ -18,7 +42,55 @@ $ 19 20 21 22 23 24 25
 $ 26 27 28 29 30 31
 ```
 
+Resposta: arquivo 2_serial_system
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+
+int main(int argc, char** argv){
+	int i;
+	for (i = 1; i < argc; i++){
+		system(argv[i]);
+	}
+
+}
+```
+
 3. Crie um código em C que recebe o nome de diversos comandos pelos argumentos de entrada (`argc` e `*argv[]`), e executa cada um usando `fork()` e `exec()`.
+
+Resposta: arquivo 3_serial_fork
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+
+int main(int argc, char** argv){
+	int i;
+	/*char** args;
+	args = (char**)malloc(argc*sizeof(char*)+1);
+	for (i = 1; i < argc; i++){
+		args[i-1]=argv[i];
+	}*/
+	for (i = 1; i < argc; i++){
+		if(fork()==0){
+			char* aux[] = {argv[i],NULL};
+			execvp(argv[i],aux);
+			printf("Erro: não executou o %s\n",argv[i]);
+			break;
+		}
+		//sleep(1);
+	}
+
+}
+
+```
 
 4. Crie um código em C que gera três processos-filho usando o `fork()`, e que cada processo-filho chama a seguinte função uma vez:
 
@@ -34,4 +106,68 @@ void Incrementa_Variavel_Global(pid_t id_atual)
 
 (Repare que a função `Incrementa_Variavel_Global()` recebe como entrada o ID do processo que a chamou.) Responda: a variável global `v_global` foi compartilhada por todos os processos-filho, ou cada processo enxergou um valor diferente para esta variável?
 
+
+Resposta: Cada processo filho enxergou o valor 0 na variável global, isso porque os processos filhos só alteraram o valor dessa variavel dentro dos seus processos, sem interferir no outro. O código está no arquivo 4_tres_filhos.c
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int v_global = 0; // Variavel global para este exemplo
+void Incrementa_Variavel_Global(pid_t id_atual)
+{
+	v_global++;
+	printf("ID do processo que executou esta funcao = %d\n", id_atual);
+	printf("v_global = %d\n", v_global);
+}
+
+int main(int argc, char** argv){
+	int i;
+	for (i = 1; i <= 3; i++){
+		if(fork()==0){
+			Incrementa_Variavel_Global(getpid());
+			break;
+		}
+		sleep(1);
+	}
+
+}
+
+```
+
 5. Repita a questão anterior, mas desta vez faça com que o processo-pai também chame a função `Incrementa_Variavel_Global()`. Responda: a variável global `v_global` foi compartilhada por todos os processos-filho e o processo-pai, ou cada processo enxergou um valor diferente para esta variável?
+
+
+Resposta: A variavel foi compartilhada entre o processo-pai e os processos-filhos de acordo com que cada uma ia sendo criado. O código está no arquivo 5_tres_filhos.c.
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int v_global = 0; // Variavel global para este exemplo
+void Incrementa_Variavel_Global(pid_t id_atual)
+{
+	v_global++;
+	printf("ID do processo que executou esta funcao = %d\n", id_atual);
+	printf("v_global = %d\n", v_global);
+}
+
+int main(int argc, char** argv){
+	int i;
+	for (i = 1; i <= 3; i++){
+		if(fork()==0){
+			Incrementa_Variavel_Global(getpid());
+			break;
+		}else{
+			Incrementa_Variavel_Global(getpid());
+		}
+		sleep(1);
+	}
+
+}
+
+```
