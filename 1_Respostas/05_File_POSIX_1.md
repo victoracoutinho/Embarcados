@@ -8,6 +8,7 @@ FILE *fd = fopen(*char diretorio, *char acao_sobre_o_arquivo)
 int fclose( FILE *fd);
 ```
 
+
 (b) Quais são as funções (e seus protótipos) para escrever em arquivos?
 
 
@@ -26,6 +27,7 @@ fscanf(FILE* fd, char* texto_de_leitura, parametros, ...);
 
 
 ```C
+fseek( FILE* fd, long offset, int opcoes);
 
 ```
 
@@ -34,6 +36,9 @@ fscanf(FILE* fd, char* texto_de_leitura, parametros, ...);
 stdio.h
 
 2. O que é a norma POSIX?
+
+
+POSIX é uma família de padrões especificados. Esses padrões são especificadoes pela IEEE para mantenha uma compabtibilidade entre sistemas operacionais.
 
 3. Considerando a norma POSIX, responda:
 
@@ -63,6 +68,7 @@ int read (int fd, void endereco_da_string, int quantidade_de_bytes);
 
 
 ```C
+int lseek(int fd, offset_t offset, int opcoes)
 
 ```
 
