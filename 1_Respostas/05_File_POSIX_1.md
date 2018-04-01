@@ -38,7 +38,7 @@ stdio.h
 2. O que é a norma POSIX?
 
 
-POSIX é uma família de padrões especificados. Esses padrões são especificadoes pela IEEE para mantenha uma compabtibilidade entre sistemas operacionais.
+POSIX é uma família de padrões especificados. Esses padrões são especificadoes pela IEEE para que mantenha uma compabtibilidade entre sistemas operacionais.
 
 3. Considerando a norma POSIX, responda:
 
