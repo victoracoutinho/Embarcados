@@ -20,11 +20,16 @@ Dois pipes, pois o pipe só será criado após a criação do filho, sendo assim
 
 2. Apresente mais cinco sinais importantes do ambiente Unix, além do `SIGSEGV`, `SIGUSR1`, `SIGUSR2`, `SIGALRM` e `SIGINT`. Quais são suas características e utilidades?
 
-`SIGHUP` - sinal que é emitido quando um processo é desconectado do terminal ou um processo chefe termina sua execução. 
-`SIGQUIT` - sinal que é emitido para um processo quando uma tecla de abandono do teclado é acionada. 
-`SIGILL` - sinal que é emitido quando uma instrução de um processo é detectada. 
-`SIGKILL` - sinal que é emitido pelo sitema para matar um processo. 
+`SIGHUP` - sinal que é emitido quando um processo é desconectado do terminal ou um processo chefe termina sua execução.
+
+`SIGQUIT` - sinal que é emitido para um processo quando uma tecla de abandono do teclado é acionada.
+
+`SIGILL` - sinal que é emitido quando uma instrução de um processo é detectada.
+
+`SIGKILL` - sinal que é emitido pelo sitema para matar um processo.
+
 `SIGPIPE` - sinal que é emitido quando um processo tenta escrever em um pipe, porém ele não está aberto para leitura.
+
 3. Considere o código a seguir:
 
 ```C
