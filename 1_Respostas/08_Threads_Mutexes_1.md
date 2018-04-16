@@ -2,7 +2,11 @@
 
 (a) fork?
 
+	Cada um executa individualmente o programa sem necessáriamente depender do outro, mas não há um conpartilhamento de dados tão fácil
+
 (b) threads?
+
+	As variáveis são compartilhadas, mas sa função principal for encerrada todos os threads também serão.
 
 2. Quantas threads serão criadas após as linhas de código a seguir? Quantas coexistirão? Por quê?
 
@@ -23,6 +27,8 @@ int main (int argc, char** argv)
 }
 ```
 
+	Serão criadas duas threads e elas duas coexistirão até o programa for finalizado ou uma delas parar.
+
 (b)
 ```C
 void* funcao_thread_1(void *arg);
@@ -38,11 +44,16 @@ int main (int argc, char** argv)
 	return 0;
 }
 ```
+	São criadas duas threads, porém a `funcao_thread_2` só será executada após a `funcao_thread_1` terminar de ser executado.
 
 3. Apresente as características e utilidades das seguintes funções:
 
 (a) `pthread_setcancelstate()`
 
+O estado de cancelamento pode ser ativado(padrão) ou desativado. Caso esteja desativado, o cancelamento fica na fila até que o cancelamento estava em ativado. Caso estaja ativado, então o tipo de cancelamento determina quando o cancelamento vai ocorrer
+
 (b) `pthread_setcanceltype()`
+
+O tipo de cancelamento pode ser tanto assincrono quanto adiado(padrão). Quando está em assíncrono, o cancelamento pode ocorrer a qualquer momento. Quando está em adiado, o cancelamento sofrerá um atraso até a thread em seguida chame uma função que seja o ponto de cancelamento.
 
 (DICA: elas são relacionadas à função pthread_cancel().)
