@@ -2,11 +2,11 @@
 
 (a) fork?
 
-	Cada um executa individualmente o programa sem necessáriamente depender do outro, mas não há um conpartilhamento de dados tão fácil
+Cada um executa individualmente o programa sem necessáriamente depender do outro, mas não há um conpartilhamento de dados tão fácil
 
 (b) threads?
 
-	As variáveis são compartilhadas, mas sa função principal for encerrada todos os threads também serão.
+As variáveis são compartilhadas, mas sa função principal for encerrada todos os threads também serão.
 
 2. Quantas threads serão criadas após as linhas de código a seguir? Quantas coexistirão? Por quê?
 
@@ -27,7 +27,7 @@ int main (int argc, char** argv)
 }
 ```
 
-	Serão criadas duas threads e elas duas coexistirão até o programa for finalizado ou uma delas parar.
+Serão criadas duas threads e elas duas coexistirão até o programa for finalizado ou uma delas parar.
 
 (b)
 ```C
@@ -44,7 +44,7 @@ int main (int argc, char** argv)
 	return 0;
 }
 ```
-	São criadas duas threads, porém a `funcao_thread_2` só será executada após a `funcao_thread_1` terminar de ser executado.
+São criadas duas threads, porém a `funcao_thread_2` só será executada após a `funcao_thread_1` terminar de ser executado.
 
 3. Apresente as características e utilidades das seguintes funções:
 
