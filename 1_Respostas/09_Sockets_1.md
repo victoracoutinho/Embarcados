@@ -2,15 +2,25 @@
 
 (a) Quais são as características básicas deste modelo?
 
+É uma extensão do pipe que serve para comunicação de uma rede de computadores. Existe um fluxo de dados que são mandados do cliente para o servidor e, em resposta, um fluxo de dados do servidor ao cliente.
+
 (b) Quais são as características básicas do servidor?
 
+Ele só manda dados quando ele recebe um fluxo de dados do cliente, ou seja, ele aguarda passivamente.
+
 (c) Quais são as características básicas do cliente?
+
+Ele que inicia a comunicação. Ele deve saber o endereço e a porta do servidor para iniciar uma comunicação com o servidor.
 
 2.  Com relação ao protocolo de comunicação da internet, responda:
 
 (a) O que são protocolos de comunicação?
 
+São o Stream(TCP) e o Datagram(UDP). O Stream é mais confiavel e é um protocolo de transporte orientado a conexão. O Datagram é menos confiável e não há conexão.
+
 (b) Quais são as características básicas de protocolos de comunicação?
+
+Devem ter um método de recebimento e envio de dados entre servidor e cliente atendendo as necessidades.
 
 3. Com relação ao protocolo TCP, responda:
 
