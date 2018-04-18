@@ -26,4 +26,8 @@ Devem ter um método de recebimento e envio de dados entre servidor e cliente at
 
 (a) O que são portas no protocolo TCP?
 
+São endereços dentro do servidor. Existem 65536 portas TCP.
+
 (b) Para que servem estas portas?
+
+Elas servem para ser executados diversas comunicacões entre diversos clientes em um mesmo servidor.
