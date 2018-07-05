@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Sun, 12 Mar 2017 02:29:45 +0100
+Source: mbrola
+Binary: mbrola
+Architecture: armhf
+Version: 3.01h+2-3
+Distribution: unstable
+Urgency: medium
+Maintainer: Samuel Thibault <sthibault@debian.org>
+Changed-By: Samuel Thibault <sthibault@debian.org>
+Description:
+ mbrola     - Multilingual software speech synthesizer
+Closes: 857501
+Changes:
+ mbrola (3.01h+2-3) unstable; urgency=medium
+ .
+   * Make mbrola wrapper for libstrongexit.so simpler. espeak seems to be
+     looking at mbrola's state, and does not like to see it sleeping, waiting
+     for dpkg-architecture's output... (Closes: 857501).
+Checksums-Sha1:
+ 3e7d2a8a8b56c8860da70a418c512081b6cc8cef 2960 mbrola-dbgsym_3.01h+2-3_armhf.deb
+ 134a93d57e012c67e9c7acbe1967fc48c383317c 4762 mbrola_3.01h+2-3_armhf.buildinfo
+ d39664c2cf1b227c83425bfc24778a1df50f64c5 41684 mbrola_3.01h+2-3_armhf.deb
+Checksums-Sha256:
+ 59deac197066a5b73e2dbb0304507ff3c23f5db1597d0cab08c9cbe8dd195b0b 2960 mbrola-dbgsym_3.01h+2-3_armhf.deb
+ 2084bfd5bbd649e72bea83e05709dc9562b8dbaec1321c5dda520889cc06c6ad 4762 mbrola_3.01h+2-3_armhf.buildinfo
+ fc23fda67a7c46a029af5c0b549769e18a936b02d1eafd52ae8d50521b5e253b 41684 mbrola_3.01h+2-3_armhf.deb
+Files:
+ d5f2adc3ce80776870135aa3695da531 2960 non-free/debug extra mbrola-dbgsym_3.01h+2-3_armhf.deb
+ 03c4bdd791d4fa0f1c9563405c294cc3 4762 non-free/sound optional mbrola_3.01h+2-3_armhf.buildinfo
+ a72564ddf2a73d90f1493b6718df2087 41684 non-free/sound optional mbrola_3.01h+2-3_armhf.deb

@@ -1,0 +1,77 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+DEB_HOST_ARCH?=$(shell dpkg-architecture -qDEB_HOST_ARCH)
+DEB_HOST_MULTIARCH?=$(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+README_ZIPBALL=mbr301h_i386-ppc-alpha-ultra.zip
+
+TARBALL=
+ZIPBALL=
+RARBALL=
+
+ifeq ($(DEB_HOST_ARCH),i386)
+ZIPBALL=mbr301h_i386-ppc-alpha-ultra.zip
+FILENAME=unpacked/mbrola-linux-i386
+endif
+
+ifeq ($(DEB_HOST_ARCH),amd64)
+ZIPBALL=mbr301h_i386-ppc-alpha-ultra.zip
+# See end of README.Debian
+FILENAME=unpacked/mbrola-linux-i386
+CFLAGS+=-m32
+endif
+
+ifeq ($(DEB_HOST_ARCH),alpha)
+ZIPBALL=mbr301h_i386-ppc-alpha-ultra.zip
+FILENAME=unpacked/mbrola-linux-alpha
+endif
+
+ifeq ($(DEB_HOST_ARCH),powerpc)
+ZIPBALL=mbr301h_i386-ppc-alpha-ultra.zip
+FILENAME=unpacked/mbrola302b-linux-ppc
+endif
+
+ifeq ($(DEB_HOST_ARCH),sparc)
+ZIPBALL=mbr301h_i386-ppc-alpha-ultra.zip
+FILENAME=unpacked/mbrola-SuSElinux-ultra1.dat
+endif
+
+ifeq ($(DEB_HOST_ARCH),armel)
+ifeq (0,1)
+# This static one does not work on maemo
+ZIPBALL=mbr301h_arm.zip
+FILENAME=unpacked/mbrola-linux-strongarm2-static
+else
+FILENAME=zipballs/mbrola-armel
+endif
+endif
+
+ifeq ($(DEB_HOST_ARCH),armhf)
+TARBALL=mbrola.tgz
+FILENAME=unpacked/mbrola
+endif
+
+unpack:
+ifneq ($(TARBALL),)
+	mkdir unpacked
+	tar -x -C unpacked -f zipballs/$(TARBALL)
+else
+ifneq ($(ZIPBALL),)
+	unzip -u -d unpacked zipballs/$(ZIPBALL)
+endif
+endif
+	unzip -u -d unpacked zipballs/$(README_ZIPBALL)
+
+override_dh_auto_build: unpack
+	cp -f $(FILENAME) mbrola
+	chmod u+w,+x mbrola
+	strip mbrola
+	$(MAKE) -C debian/strongexit
+
+override_dh_auto_clean:
+	$(MAKE) clean -C debian/strongexit
+
+override_dh_shlibdeps:
+	dh_shlibdeps -- -e debian/mbrola/usr/lib/$(DEB_HOST_MULTIARCH)/mbrola/mbrola

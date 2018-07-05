@@ -1,0 +1,9 @@
+d3af110289e9c6f9f582df42b50bcded  usr/bin/mbrola
+7bdd926d6d471d1202b96bd5d6f9936f  usr/lib/arm-linux-gnueabihf/mbrola/libstrongexit.so
+c35ab82d4dcdd6dc8f1278f251c836cb  usr/lib/arm-linux-gnueabihf/mbrola/mbrola
+0833f333e73f941b5df1e35aa8f51259  usr/share/doc/mbrola/README.Debian
+4954a2d8b30807771190d3b994492d37  usr/share/doc/mbrola/changelog.Debian.gz
+e2baa45ac5f92c0cd6d124a9b18ca438  usr/share/doc/mbrola/copyright
+b91662c163a4ed1f9151680605139877  usr/share/doc/mbrola/examples/mbrola-voice-package-generate.gz
+274c29587560567b781e31f12226f749  usr/share/doc/mbrola/readme.txt.gz
+f212b4d3bdf5139872c36c50377e7d9b  usr/share/man/man1/mbrola.1.gz

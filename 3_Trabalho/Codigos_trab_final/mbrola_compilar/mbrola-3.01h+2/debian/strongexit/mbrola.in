@@ -1,0 +1,4 @@
+#!/bin/bash
+# mbrola crashes on exit() cleanup, so don't bother trying to exit cleanly,
+# mbrola does close the output file fine anyway (see #856331)
+LD_PRELOAD=/usr/lib/@DEB_HOST_MULTIARCH@/mbrola/libstrongexit.so exec /usr/lib/@DEB_HOST_MULTIARCH@/mbrola/mbrola "$@"

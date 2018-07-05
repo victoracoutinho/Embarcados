@@ -1,0 +1,1 @@
+mbrola source: depends-on-build-essential-package-without-using-version libc6-dev [build-depends: libc6-dev:i386 [amd64]]

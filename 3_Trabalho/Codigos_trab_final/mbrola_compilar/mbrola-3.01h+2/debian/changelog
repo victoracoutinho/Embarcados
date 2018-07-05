@@ -1,0 +1,101 @@
+mbrola (3.01h+2-3) unstable; urgency=medium
+
+  * Make mbrola wrapper for libstrongexit.so simpler. espeak seems to be
+    looking at mbrola's state, and does not like to see it sleeping, waiting
+    for dpkg-architecture's output... (Closes: 857501).
+
+ -- Samuel Thibault <sthibault@debian.org>  Sun, 12 Mar 2017 02:29:45 +0100
+
+mbrola (3.01h+2-2) unstable; urgency=medium
+
+  * Add libstrongexit.so workaround. mbrola crashes on exit() cleanup, so
+    don't bother trying to exit cleanly, mbrola does close the output file
+    fine anyway (Closes: #856331).
+    - install: install libstrongexit.so and wrapper script to use it
+    - control:
+      - build-depend on gcc-multilib on amd64 for cross-compiling 32bit
+      libstrongexit.so
+      - build-depend on dh-exec for multiarch path
+      - depend on dpkg-dev for multiarch path at exec.
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 28 Feb 2017 14:26:24 +0100
+
+mbrola (3.01h+2-1) unstable; urgency=medium
+
+  * Add armhf build from upstream (Closes: 839021).
+  * control: Bump Standards-Version to 3.9.8 (no change).
+
+ -- Samuel Thibault <sthibault@debian.org>  Wed, 28 Sep 2016 09:21:27 +0200
+
+mbrola (3.01h+1-3) unstable; urgency=medium
+
+  * Bump Standards-Version to 3.9.6 (no changes).
+  * compat: Bump to 9.
+  * rules: Clear.
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 22 Dec 2015 21:41:04 +0100
+
+mbrola (3.01h+1-2) unstable; urgency=medium
+
+  * mbrola-voice-package-generate: Add TEST1 to list of test directories.
+  * Add libc6:i386 as shlib alternative on amd64 (Closes: 757188).
+
+ -- Samuel Thibault <sthibault@debian.org>  Wed, 06 Aug 2014 10:07:46 +0200
+
+mbrola (3.01h+1-1) unstable; urgency=low
+
+  * Include ARM dynamic-rebuilt binary.
+  * Bump Standards-Version to 3.9.5 (no change needed)
+  * debian/rules: Add build-indep rule.
+  * debian/mbrola-voice-package-generate: Add build-{arch,indep} rules.
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 31 Dec 2013 00:00:23 +0100
+
+mbrola (3.01h-6) unstable; urgency=low
+
+  * debian/control: Bump Standards-Version to 3.9.1 (no change needed).
+  * debian/mbrola-voice-package-generate: Fix voice path according to common
+    usage (Closes: 593971).
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 16 Sep 2010 07:52:25 +0200
+
+mbrola (3.01h-5) unstable; urgency=low
+
+  * rules: chmod u+w mbrola to fix FTBFS on sparc.
+  * debian/control: Bump Standards-Version to 3.8.4 (no change needed).
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 28 Jan 2010 00:02:20 +0100
+
+mbrola (3.01h-4) unstable; urgency=low
+
+  * control: add ${misc:Depends}.
+  * mbrola.1: Fix typo.
+  * rules: Strip the mbrola binary.
+
+ -- Samuel Thibault <sthibault@debian.org>  Fri, 01 Jan 2010 22:20:17 +0100
+
+mbrola (3.01h-3) unstable; urgency=low
+
+  * README.Debian: Add a note about the amd64 package containing a 32bit
+    binary, and that hence ia32 emulation must be enabled in the kernel
+    (Closes: Bug#532972).
+  * Bump Standards-Version to 3.8.3 (no change needed).
+  * control: Add Multi-Arch: foreign header.
+
+ -- Samuel Thibault <sthibault@debian.org>  Fri, 01 Jan 2010 21:38:40 +0100
+
+mbrola (3.01h-2) unstable; urgency=low
+
+  * Bump Standards-Version to 3.8.1, no changes needed.
+  * Change my email, remove DM-Upload-Allowed, as well as in voice packages.
+  * Bump debhelper build-dependency to (>= 7), to get dh_prep.
+  * Remove arm arch.
+  * Document how to use espeak+mbrola in speech dispatcher.
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 07 May 2009 01:48:36 +0200
+
+mbrola (3.01h-1) unstable; urgency=low
+
+  * Initial release (Closes: #509517).
+
+ -- Samuel Thibault <samuel.thibault@ens-lyon.org>  Sun, 18 Jan 2009 22:32:09 +0100

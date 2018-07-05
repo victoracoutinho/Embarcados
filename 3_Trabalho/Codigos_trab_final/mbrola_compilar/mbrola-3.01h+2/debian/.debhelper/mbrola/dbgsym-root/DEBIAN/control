@@ -1,0 +1,13 @@
+Package: mbrola-dbgsym
+Source: mbrola
+Version: 3.01h+2-3
+Auto-Built-Package: debug-symbols
+Architecture: armhf
+Maintainer: Samuel Thibault <sthibault@debian.org>
+Installed-Size: 15
+Depends: mbrola (= 3.01h+2-3)
+Section: non-free/debug
+Priority: extra
+Homepage: http://tcts.fpms.ac.be/synthesis/
+Description: Debug symbols for mbrola
+Build-Ids: 4672dafb20093931ea4d0512ca5653f832cc61c1

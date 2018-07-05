@@ -1,0 +1,4 @@
+#! /usr/bin/dh-exec
+mbrola /usr/lib/${DEB_HOST_MULTIARCH}/mbrola
+debian/strongexit/libstrongexit.so /usr/lib/${DEB_HOST_MULTIARCH}/mbrola
+debian/strongexit/mbrola /usr/bin
